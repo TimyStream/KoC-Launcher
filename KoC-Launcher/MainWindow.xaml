@@ -3,10 +3,171 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:KoC_Launcher"
+        xmlns:local="clr-namespace:KoC_Launcher" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="540" Width="380"
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None" ResizeMode="NoResize"
+        MouseDown="Window_MouseDown" Initialized="Window_Initialized">
     <Grid>
-        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="240"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border CornerRadius="20" Grid.RowSpan="2">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#000046" Offset="0.0"/>
+                        <GradientStop Color="#f083da" Offset="0.99"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+            <StackPanel VerticalAlignment="Top">
+                <Image Source="Images/KoC-Launcher-Logo.png" Width="130" Margin="20"/>
+                <TextBlock Text="Knockout City Launcher" 
+                           FontSize="30"
+                           FontWeight="Bold"
+                           FontFamily="helvetica"
+                           Foreground="White"
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox FontFamily="Helvetica"
+                             FontWeight="Light"
+                             FontSize="22"
+                             HorizontalAlignment="Center"
+                             Foreground="White"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="230"
+                             HorizontalContentAlignment="Left"
+                             Opacity="0.8"
+                             Height="25"
+                             Margin="63,0,0,0"
+                             ToolTip="Username"
+                             Name="UsernameField"/>
+                    <iconPacks:PackIconMaterial Kind="Account"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center" 
+                                            Foreground="White"
+                                                Width="23"
+                                                Height="23"/>
+                </StackPanel>
+                <Border Width="250"
+                        Height="2"
+                        Background="White"
+                        Opacity="0.5"/>
+
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <PasswordBox FontFamily="Helvetica"
+                             FontWeight="Light"
+                             FontSize="22"
+                             HorizontalAlignment="Center"
+                             Foreground="White"
+                             Background="Transparent"
+                             BorderThickness="0"
+                             Width="230"
+                             HorizontalContentAlignment="Left"
+                             Opacity="0.8"
+                             Height="25"
+                             Margin="63,0,0,0"
+                             ToolTip="Server Password"
+                             Name="PasswordField"/>
+                    <iconPacks:PackIconMaterial Kind="FormTextboxPassword"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center" 
+                            Foreground="White"
+                                                Height="23"
+                                                Width="23"/>
+                </StackPanel>
+                <Border Width="250"
+                        Height="2"
+                        Background="White"
+                        Opacity="0.5"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <TextBox FontFamily="Helvetica"
+                            FontWeight="Light"
+                            FontSize="22"
+                            HorizontalAlignment="Center"
+                            Foreground="White"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Width="230"
+                            HorizontalContentAlignment="Left"
+                            Opacity="0.8"
+                            Height="25"
+                            Margin="63,0,0,0"
+                             ToolTip="Server Adresse"
+                             Name="ServerAddressField"/>
+                    <iconPacks:PackIconMaterial Kind="ServerNetwork"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center" 
+                                                Foreground="White"
+                                                Height="23"
+                                                Width="23"/>
+                </StackPanel>
+                <Border Width="250"
+                        Height="2"
+                        Background="White"
+                        Opacity="0.5"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <TextBox Name="GamePathField"
+                            FontFamily="Helvetica"
+                            FontWeight="Light"
+                            FontSize="15"
+                            HorizontalAlignment="Center"
+                            Foreground="White"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Width="230"
+                            HorizontalContentAlignment="Left"
+                            Opacity="0.8"
+                            Height="25"
+                            Margin="63,0,0,0" 
+                             InputScope="FullFilePath"
+                             ToolTip="Path to Game"/>
+                    <iconPacks:PackIconMaterial Kind="GamepadVariantOutline"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center" 
+                                Foreground="White"
+                                                Height="25"
+                                                Width="25"/>
+                </StackPanel>
+                <Border Width="250"
+                        Height="2"
+                        Background="White"
+                        Opacity="0.5"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0">
+                    <Button Width="120" Height="60" Content="JOIN" Margin="0,0,10,0" Click="Button_Click"/>
+                    <Button Width="120" Height="60" Content="EXIT" Margin="10,0,0,0" Name="ExitButton" Click="ExitButton_Click"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <TextBlock Name="VersionText"
+                               Text="Version: 1.0.0.0"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               FontFamily="helvetica"
+                               Foreground="White"
+                               Background="Transparent"
+                               Margin="0,0,25,0"/>
+                    <TextBlock Text="Created with ♥️ by Timy Stream"
+                               FontSize="14"
+                               FontWeight="Bold"
+                               FontFamily="helvetica"
+                               Foreground="White"
+                               Background="Transparent"
+                               Margin="25,0,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
